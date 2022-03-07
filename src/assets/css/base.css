@@ -1,0 +1,71 @@
+@import "https://at.alicdn.com/t/font_3119787_v4534fgnfdo.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: .2s ease;
+}
+
+html, body {
+  min-width: 1025px;
+  height: 100%;
+  position: relative;
+}
+
+button, input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: #323232;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+/* 滚动槽 */
+body::-webkit-scrollbar-track {
+  box-shadow: inset006pxrgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+/* 滚动条滑块 */
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
+
+:root {
+  --color-primary: #ec4141;
+  --color-thin: #f5f5f5;
+  --color-black-white: #f5f5f5;
+  
+}
+
+:root.white {
+  --color-primary: #f5f5f5;
+  --color-thin: #ec4141;
+  --color-black-white: #323232;
+}
+/* 设置滚动条的样式 */
+div::-webkit-scrollbar {
+  width: 12px;
+}
+/* 滚动槽 */
+div::-webkit-scrollbar-track {
+  box-shadow: inset006pxrgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+/* 滚动条滑块 */
+div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
