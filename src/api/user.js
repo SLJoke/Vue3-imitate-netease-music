@@ -1,4 +1,4 @@
-import service from '../utils/service'
+import service from '@/utils/service'
 
 export function _cellphoneLogin(phone, password) {
   return service({
@@ -17,15 +17,19 @@ export function _cellphoneLogin(phone, password) {
 
 export function _logout() {
   return service({
-    url: '/logout',
-    method: 'POST',
+    url: '/logout'
   });
 }
 
-export function _refreshCookie() {
+export function _getLoggedStatus() {
   return service({
-    url: '/login/refresh',
-    method: 'POST',
+    url: '/login/status'
+  });
+}
+
+export function _refreshStatus() {
+  return service({
+    url: '/login/refresh'
   });
 }
 

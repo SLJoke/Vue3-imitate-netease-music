@@ -4,7 +4,10 @@ import { ElLoading, ElMessage } from 'element-plus'
 let loadingInstance
 // 创建一个 axios 实例
 const service = axios.create({
-  baseURL: 'http://150.158.44.141:3000',
+  // baseURL: 'http://150.158.44.141:3000',
+  // 部署在vercel上需要额外增加一个参数realIP
+  baseURL: 'https://api.jinlx.cc',
+  params: { realIP: '182.139.155.157' },
   timeout: 15000,
   // 允许携带cookie
   withCredentials: true

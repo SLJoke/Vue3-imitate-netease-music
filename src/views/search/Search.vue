@@ -23,7 +23,7 @@ import {
   _getSongUrl,
   _getSongDetails
 } from '@/api/songs'
-import { ElMessage } from 'element-plus'
+import { setSongPlay, setSinger } from '@/utils/utils'
 
 const store = useStore()
 const route = useRoute()
@@ -35,16 +35,9 @@ onMounted(() => {
 })
 
 watch(keywords, () => {
-  getSongs()
+  if (keywords.value !== undefined)
+    getSongs()
 })
-
-const setSinger = (items) => {
-  let arr = []
-  items.forEach(item => {
-    arr.push(item.name)
-  })
-  return arr.join('/')
-}
 
 const getSongs = async () => {
   songLists.value = null
@@ -53,25 +46,33 @@ const getSongs = async () => {
   songLists.value = res.result.songs
 }
 
-const setSongPlay = async (id) => {
-  const res = await _getSongUrl(id)
-  const { url } = res.data[0]
-  const details = await _getSongDetails(id)
-  const { al, ar, name } = details.songs[0]
-  
-  if (url !== null) {
-    store.commit('setCurrentSong', {
-      url: url,
-      picUrl: al.picUrl,
-      name: name,
-      singer: setSinger(ar)
-    })
-    store.commit('setPlayingStatus', true)
-  }
-  else {
-    ElMessage.error('音乐不能播放!')
-  }
-}
+// const setSongPlay = async (id) => {
+//   // const res = await _getSongUrl(id)
+//   // const { url } = res.data[0]
+//   const details = await _getSongDetails(id)
+//   const { al, ar, name } = details.songs[0]
+//   const songs = {
+//     id,
+//     url: songUrlOuter(id),
+//     picUrl: al.picUrl,
+//     name: name,
+//     singer: setSinger(ar)
+//   }
+//   store.commit('setCurrentSong', songs)
+//   store.commit('setPlayList', songs)
+// }
+
+// function songUrlOuter(id) {
+//   return `http://music.163.com/song/media/outer/url?id=${id}.mp3`
+// }
+
+// function setSinger(items) {
+//   let arr = []
+//   items.forEach(item => {
+//     arr.push(item.name)
+//   })
+//   return arr.join('/')
+// }
 </script>
 
 <style lang="less" scoped>

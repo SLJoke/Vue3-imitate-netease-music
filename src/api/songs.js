@@ -1,4 +1,4 @@
-import service from '../utils/service'
+import service from '@/utils/service'
 
 export function _getSearch(keywords) {
   return service({
@@ -15,5 +15,14 @@ export function _getSongUrl(id) {
 export function _getSongDetails(id) {
   return service({
     url: `/song/detail?ids=${id}`
+  })
+}
+
+export function _getPlaylist(id) {
+  return service({
+    // limit 限制返回的数据量
+    // offset 相当于分页
+    // url: `/playlist/track/all?id=${id}&limit=10&offset=${offset}`
+    url: `/playlist/detail?id=${id}`
   })
 }

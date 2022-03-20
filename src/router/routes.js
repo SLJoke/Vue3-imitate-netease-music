@@ -27,5 +27,10 @@ export const routes = [
     path: '/search/:keywords',
     name: '搜索',
     component: () => import('@/views/search/Search.vue')
+  },
+  {
+    path: '/playlist/:pid',
+    name: '歌单详情',
+    component: () => import('@/views/playlist/Playlist.vue')
   }
 ]

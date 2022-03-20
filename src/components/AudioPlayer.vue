@@ -1,24 +1,24 @@
 <template>
   <div class="music-player">
     <div class="left">
-      <div class="wrapper" v-if="songUrl !== ''">
-        <img :src="picUrl" class="pic" alt />
+      <div class="wrapper" v-if="currentSong.picUrl !== undefined">
+        <img :src="currentSong.picUrl" class="pic" alt />
         <div class="txt">
-          <p class="song">{{ songName }}</p>
-          <p class="singer">{{ singer }}</p>
+          <p class="song">{{ currentSong.name }}</p>
+          <p class="singer">{{ currentSong.singer }}</p>
         </div>
       </div>
     </div>
     <div class="center">
-      <div class="music-previous">
+      <div class="music-previous" @click="onPrevious">
         <i class="iconfont icon-previous"></i>
       </div>
       <div class="music-play" @click="onPlay">
         <i class="iconfont" :class="
-          isplay ? 'icon-pause' : 'icon-play'
+          playing ? 'icon-pause' : 'icon-play'
         "></i>
       </div>
-      <div class="music-next">
+      <div class="music-next" @click="onNext">
         <i class="iconfont icon-next"></i>
       </div>
     </div>
@@ -26,38 +26,34 @@
   </div>
   <audio
     ref="audioPlayerRef"
-    :src="songUrl"
+    :src="currentSong.url"
+    @playing="onPlaying"
     @ended="onEnd"
-    autoplay></audio>
+    autoplay
+  ></audio>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { ElMessage } from 'element-plus'
-defineProps({
-  songUrl: {
-    type: String,
-    default: ''
-  },
-  picUrl: {
-    type: String,
-    default: ''
-  },
-  songName: {
-    type: String,
-    default: ''
-  },
-  singer: {
-    type: String,
-    default: ''
-  }
-})
 
 const audioPlayerRef = ref()
 const store = useStore()
 
-const isplay = computed(() => store.state.playing)
+const playing = computed(() => store.state.playing)
+const currentSong = computed(() => store.state.currentSong)
+const playlists = computed(() => store.state.playlist)
+const currentIndex = computed(() => playlists.value.findIndex(item => item.id === currentSong.value.id))
+
+const onPrevious = () => {
+  console.log('previous')
+  let prevIndex = currentIndex.value - 1
+  if (prevIndex < 0) {
+    prevIndex = playlists.value.length - 1
+  }
+  store.commit('setCurrentSong', playlists.value[prevIndex])
+}
 
 const onPlay = () => {
   const status = audioPlayerRef.value.paused
@@ -77,11 +73,25 @@ const onPlay = () => {
   }
 }
 
-const onEnd = () => {
-  setPlayStatus(false)
+const onNext = () => {
+  console.log('next')
+  let nextIndex = currentIndex.value + 1
+  if (nextIndex > playlists.value.length - 1) {
+      nextIndex = 0
+    }
+  store.commit('setCurrentSong', playlists.value[nextIndex])
 }
 
-const setPlayStatus = status => {
+const onPlaying = () => {
+  setPlayStatus(true)
+}
+
+const onEnd = () => {
+  setPlayStatus(false)
+  onNext()
+}
+
+const setPlayStatus = (status) => {
   store.commit('setPlayingStatus', status)
 }
 </script>

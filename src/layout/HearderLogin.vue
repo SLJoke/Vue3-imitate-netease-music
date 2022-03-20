@@ -7,8 +7,8 @@
     <div v-else>
       <el-dropdown trigger="click" @command="onLogout">
         <span class="el-dropdown-link user-info">
-          <img class="avatar" :src="avatarUrl" alt />
-          <span class="nickname">{{ nickname }}</span>
+          <img class="avatar" :src="userInfo.avatarUrl" alt />
+          <span class="nickname">{{ userInfo.nickname }}</span>
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
@@ -47,17 +47,14 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { _cellphoneLogin, _logout } from '@/api/user'
 import { setCookies, clearCookies } from '@/utils/utils'
-
 const store = useStore()
 const state = reactive({
   modalOpen: false,
   teleNumber: '',
-  telePassword: ''
+  telePassword: '',
+  userInfo: JSON.parse(localStorage.getItem('user_info')) || ''
 })
 
-const userInfo = JSON.parse(localStorage.getItem('user_info')) || ''
-const avatarUrl = computed(() => userInfo.avatarUrl)
-const nickname = computed(() => userInfo.nickname)
 const isLogged = computed(() => store.state.isLogged)
 
 const login = async (e) => {
@@ -69,13 +66,14 @@ const login = async (e) => {
     try {
       const res = await _cellphoneLogin(phone, password)
       if (res.code === 200) {
+        state.userInfo = res.profile
+        localStorage.setItem('user_info', JSON.stringify(res.profile))
+        store.commit('setLoginStatus', true)
+        setCookies(res.cookie)
         ElMessage({
           message: '登录成功',
           type: 'success',
         })
-        localStorage.setItem('user_info', JSON.stringify(res.profile))
-        store.commit('setLoginStatus', true)
-        setCookies(res.cookie)
       } else {
         ElMessage.error('密码错误')
       }
@@ -85,11 +83,12 @@ const login = async (e) => {
       ElMessage.error(err)
     }
   }
-  else return console.log('账号密码输入有误')
+  else return ElMessage.error('账号格式输入有误')
 }
 
 const onLogout = () => {
-  _logout().then(() => {
+  _logout().then((res) => {
+    console.log(res)
     ElMessage({
       message: '已退出登录',
       type: 'success',
@@ -100,7 +99,7 @@ const onLogout = () => {
   })
 }
 
-const { modalOpen, teleNumber, telePassword } = toRefs(state)
+const { modalOpen, teleNumber, telePassword, userInfo } = toRefs(state)
 </script>
 
 <style lang="less" scoped>

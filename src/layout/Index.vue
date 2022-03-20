@@ -1,31 +1,30 @@
 <template>
   <div class="layout-index">
-    <LayoutHeader />
+    <Header />
     <div class="layout-main">
-      <LayoutSideBar />
-      <router-view class="layout-router-view" />
+      <SideBar />      
+      <!--
+        keep-alive vue3内置组件缓存子组件的状态
+        当组件在 <keep-alive> 内被切换时，
+        它的 mounted 和 unmounted 生命周期钩子不会被调用，
+        取而代之的是 activated 和 deactivated
+      -->
+      <router-view class="layout-router-view" v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </div>
     <div class="layout-footer">
-      <AudioPlayer
-        :song-url="currentSong.url"
-        :pic-url="currentSong.picUrl"
-        :song-name="currentSong.name"
-        :singer="currentSong.singer"
-      />
+      <AudioPlayer />
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
 import AudioPlayer from '@/components/AudioPlayer.vue'
-import LayoutHeader from './Header.vue'
-import LayoutSideBar from './SideBar.vue'
-
-const store = useStore()
-
-const currentSong = computed(() => store.state.currentSong)
+import Header from './Header.vue'
+import SideBar from './SideBar.vue'
 </script>
 
 <style lang="less" scoped>
@@ -35,7 +34,6 @@ const currentSong = computed(() => store.state.currentSong)
     .layout-router-view {
       flex: 1;
       height: calc(100vh - 120px);
-      overflow: hidden;
     }
   }
   .layout-footer {
