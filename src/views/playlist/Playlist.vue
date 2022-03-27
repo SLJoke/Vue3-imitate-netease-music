@@ -7,19 +7,20 @@
             <div class="card-header">
               <span>{{ playlist.name }}</span>
             </div>
-          </template>
-          <div
-            v-for="item in playlist.tracks"
-            :key="item.id"
-            class="text item"
-            @click="setSongPlay(item.id)"
-          >
-            <img :src="item.al.picUrl" width="50" />
-            {{ item.name }}
+          </template>          
+          <div>
+            <div
+              v-for="item in playlist.tracks"
+              :key="item.id"
+              class="text item"
+              @click="setSongPlay(item.id)"
+            >
+              <img :src="item.al.picUrl" width="50" />
+              {{ item.name }}
+            </div>
           </div>
         </el-card>
       </div>
-      <div v-else>需要登录</div>
     </div>
   </div>
 </template>

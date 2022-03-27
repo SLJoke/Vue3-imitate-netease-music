@@ -3,8 +3,8 @@
     <div class="discover-container">
       <Banners :banners="banners" />
       <Resource :resource="recResource" />
-      <button class="btn" @click="getRecommendSongs">每日推荐歌曲</button>
-      <button class="btn" @click="getRecommendResource">每日推荐歌单</button>
+      <!-- <button class="btn" @click="getRecommendSongs">每日推荐歌曲</button>
+      <button class="btn" @click="getPersonalized">每日推荐歌单</button> -->
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ import Resource from './DiscoverResource.vue'
 import {
   _getBanner,
   _getRecommendSongs,
-  _getRecommendResource
+  _getPersonalized
 } from '@/api/discover'
 
 const banners = ref(null)
@@ -24,7 +24,7 @@ const recResource = ref(null)
 
 onMounted(() => {
   getBanners()
-  getRecommendResource()
+  getPersonalized()
 })
 
 const getBanners = async () => {
@@ -47,10 +47,10 @@ const getRecommendSongs = async () => {
   }
 }
 
-const getRecommendResource = async () => {
+const getPersonalized = async () => {
   try {
-    const res = await _getRecommendResource()
-    recResource.value = res.recommend
+    const res = await _getPersonalized()
+    recResource.value = res.result
   }
   catch (err) {
     console.log('网络请求出错了')

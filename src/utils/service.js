@@ -18,7 +18,7 @@ service.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
     // config.params.cookie = document.cookie
-    loadingInstance = ElLoading.service()
+    loadingInstance = ElLoading.service({ background: '#ffffff' })
     return config
   },
   err => {

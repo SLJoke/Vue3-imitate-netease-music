@@ -23,3 +23,9 @@ export function _getRecommendResource() {
     }
   })
 }
+
+export function _getPersonalized() {
+  return service({
+    url: '/personalized'
+  })
+}
