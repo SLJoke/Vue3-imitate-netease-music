@@ -14,11 +14,11 @@
           <i class="iconfont icon-play1"></i>
           {{ formatPlayCount(item.playCount) }}
         </span>
-        <img :src="item.picUrl" class="pic"/>
+        <img :src="item.picUrl + '?param=512y512'" class="pic"/>
         <span class="title">{{ item.name }}</span>
       </div>
     </div>
-    <div v-else>网络请求出错了</div>
+    <div v-else></div>
   </div>
 </template>
 
@@ -41,10 +41,8 @@ const onClickResource = (pid) => router.push(`/playlist/${pid}`)
   .card-main {
     display: grid;
     // 列宽
-    grid-template-columns: repeat(5, 18.4%);
-    // 行高
-    // grid-template-rows: repeat(auto-fill, 18.4%);
-    gap: 20px 2%;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     .item {
       position: relative;
       .play-count {
@@ -70,6 +68,7 @@ const onClickResource = (pid) => router.push(`/playlist/${pid}`)
       }
       .pic {
         width: 100%;
+        aspect-ratio: 1 / 1;
         border-radius: 8px;
       }
       .title {

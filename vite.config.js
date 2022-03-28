@@ -8,5 +8,15 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
-  }
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://api.jinlx.cc",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 })

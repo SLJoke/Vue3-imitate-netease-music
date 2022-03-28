@@ -52,8 +52,9 @@ const goTo = (to) => {
   router.go(to)
 }
 
-const searchWithForm = async ({ $event, keywords }) => {
+const searchWithForm = ({ $event, keywords }) => {
   $event.preventDefault()
+  if(!keywords === false)
   router.push({ path: `/search/${keywords}` })
 }
 

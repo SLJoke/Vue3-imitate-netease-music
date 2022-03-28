@@ -17,7 +17,7 @@ import { ref } from 'vue'
 
 const keywords = ref(null)
 
-const search = async () => {
+const search = () => {
   console.log('keywords is:', keywords.value)
 }
 </script>

@@ -61,3 +61,11 @@ export function formatPlayCount(count) {
   }
   return count;
 }
+
+export function formatDate(times) {
+  const conversion = new Date(times)
+  const y = conversion.getFullYear()
+  const m = conversion.getMonth() + 1
+  const d = conversion.getDate()
+  return `${y}年${m}月${d}日`
+}

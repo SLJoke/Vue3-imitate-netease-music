@@ -2,7 +2,7 @@
   <div class="music-player">
     <div class="left">
       <div class="wrapper" v-if="currentSong.picUrl !== undefined">
-        <img :src="currentSong.picUrl" class="pic" alt />
+        <img :src="currentSong.picUrl + '?param=224y224'" class="pic">
         <div class="txt">
           <p class="song">{{ currentSong.name }}</p>
           <p class="singer">{{ currentSong.singer }}</p>

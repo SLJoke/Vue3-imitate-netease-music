@@ -6,7 +6,7 @@ let loadingInstance
 const service = axios.create({
   // baseURL: 'http://150.158.44.141:3000',
   // 部署在vercel上需要额外增加一个参数realIP
-  baseURL: 'https://api.jinlx.cc',
+  baseURL: '/api',
   params: { realIP: '182.139.155.157' },
   timeout: 15000,
   // 允许携带cookie
