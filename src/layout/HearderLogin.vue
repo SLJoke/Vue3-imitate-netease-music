@@ -94,7 +94,7 @@ const onLogout = () => {
       type: 'success',
     })
     store.commit('setLoginStatus', false)
-    localStorage.removeItem('user_info')
+    localStorage.pxoveItem('user_info')
     clearCookies()
   })
 }

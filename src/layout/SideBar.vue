@@ -22,7 +22,7 @@ import { sideBar } from '@/router/routes'
 <style lang="less" scoped>
 .side-bar {
   width: 170px;
-  height: calc(100vh - 120px);
+  height: 100%;
   padding: 8px 0;
   overflow: hidden;
   background-color: #fff;

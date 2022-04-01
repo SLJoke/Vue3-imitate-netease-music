@@ -10,11 +10,13 @@ import Layout from '@/layout/Index.vue'
 @import "@/assets/css/base.css";
 
 #app {
-  height: 100%;
+  height: calc(100% - 10px);
   overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .el-loading-spinner .circular .path {
   stroke: #ec4141;
