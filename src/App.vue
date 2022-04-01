@@ -10,6 +10,8 @@ import Layout from '@/layout/Index.vue'
 @import "@/assets/css/base.css";
 
 #app {
+  height: 100%;
+  overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

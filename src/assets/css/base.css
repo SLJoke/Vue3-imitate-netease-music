@@ -11,8 +11,7 @@
 
 html, body {
   min-width: 1025px;
-  height: 100%;
-  position: relative;
+  height: 100vh;
 }
 
 button, input {
@@ -27,19 +26,20 @@ a {
 }
 
 body::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  bottom: 0;
+
 }
 /* 滚动槽 */
 body::-webkit-scrollbar-track {
-  box-shadow: inset006pxrgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 /* 滚动条滑块 */
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: inset006pxrgba(0, 0, 0, 0.5);
 }
 
 :root {
@@ -56,16 +56,15 @@ body::-webkit-scrollbar-thumb {
 }
 /* 设置滚动条的样式 */
 div::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
+  height: 6px;
 }
 /* 滚动槽 */
 div::-webkit-scrollbar-track {
-  box-shadow: inset006pxrgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 /* 滚动条滑块 */
 div::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: inset006pxrgba(0, 0, 0, 0.5);
 }

@@ -29,11 +29,13 @@ import SideBar from './SideBar.vue'
 
 <style lang="less" scoped>
 .layout-index {
+  height: 100%;
+  overflow: hidden;
   .layout-main {
+    height: calc(100% - 120px);
     display: flex;
     .layout-router-view {
       flex: 1;
-      height: calc(100vh - 120px);
     }
   }
   .layout-footer {
