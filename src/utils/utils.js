@@ -23,13 +23,14 @@ export async function setSongPlay (id) {
   // const res = await _getSongUrl(id)
   // const { url } = res.data[0]
   const details = await _getSongDetails(id)
-  const { al, ar, name } = details.songs[0]
+  const { al, ar, name, dt } = details.songs[0]
   const songs = {
     id,
     url: songUrlOuter(id),
     picUrl: al.picUrl,
     name: name,
-    singer: setSinger(ar)
+    singer: setSinger(ar),
+    duration: Math.floor(dt / 1000)
   }
   store.commit('setCurrentSong', songs)
   store.commit('setPlayList', songs)

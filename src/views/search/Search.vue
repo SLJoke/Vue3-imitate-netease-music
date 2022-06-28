@@ -2,12 +2,14 @@
   <div class="search">
     <h1 class="search-header">搜索 {{ keywords }}</h1>
     <div v-if="songLists" class="search-main">
-      <div
+      <!-- <div
         class="song-info"
         v-for="(item, index) in songLists"
         :key="item.id"
-        @click="setSongPlay(item.id)"
-      >{{ index + 1 }}、 {{ item.name }} --- {{ setSinger(item.artists) }}</div>
+        @dblclick="setSongPlay(item.id)"
+      >{{ index + 1 }}、 {{ item.name }} --- {{ setSinger(item.artists) }}</div> -->
+      <SearchList :data="songLists" :current-song-id="currentSongId" @dblplay="id => setSongPlay(id)" />
+
     </div>
     <div v-else class="error">暂无结果</div>
   </div>
@@ -16,16 +18,20 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 import {
   _getSearch,
   _getSongUrl,
   _getSongDetails
 } from '@/api/songs'
-import { setSongPlay, setSinger } from '@/utils/utils'
+import { setSongPlay } from '@/utils/utils'
+import SearchList from './SerachList.vue'
 
 const route = useRoute()
+const store = useStore()
 const songLists = ref(null)
 const keywords = computed(() => route.params.keywords)
+const currentSongId = computed(() => store.state.currentSong?.id)
 
 onMounted(() => {
   getSongs()

@@ -1,0 +1,261 @@
+{
+  "id": "3119787",
+  "name": "music",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1212617",
+      "name": "bottom ",
+      "font_class": "bottom",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "1212618",
+      "name": "top",
+      "font_class": "top",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "16619219",
+      "name": "play",
+      "font_class": "play1",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "6986994",
+      "name": "skip-next",
+      "font_class": "next",
+      "unicode": "e90b",
+      "unicode_decimal": 59659
+    },
+    {
+      "icon_id": "6986995",
+      "name": "skip-previous",
+      "font_class": "previous",
+      "unicode": "e90c",
+      "unicode_decimal": 59660
+    },
+    {
+      "icon_id": "1237900",
+      "name": "用户头像",
+      "font_class": "user-empty",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "10635141",
+      "name": "48icon_Music",
+      "font_class": "logo",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "893114",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "893116",
+      "name": "left",
+      "font_class": "left",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "17280269",
+      "name": "icon_theme-07",
+      "font_class": "theme",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "38739",
+      "name": "square",
+      "font_class": "square",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "252291",
+      "name": "move",
+      "font_class": "move",
+      "unicode": "e768",
+      "unicode_decimal": 59240
+    },
+    {
+      "icon_id": "9457252",
+      "name": "ios-radio",
+      "font_class": "personal-radio",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "1478742",
+      "name": "ic_pause_circle_outline",
+      "font_class": "pause-backups",
+      "unicode": "e957",
+      "unicode_decimal": 59735
+    },
+    {
+      "icon_id": "667501",
+      "name": "radio button",
+      "font_class": "choose",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "14401791",
+      "name": "radio",
+      "font_class": "radio-backups",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "252290",
+      "name": "add",
+      "font_class": "add",
+      "unicode": "e767",
+      "unicode_decimal": 59239
+    },
+    {
+      "icon_id": "354954",
+      "name": "download-fill",
+      "font_class": "download",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "544723",
+      "name": "ios-pause",
+      "font_class": "pause",
+      "unicode": "e80d",
+      "unicode_decimal": 59405
+    },
+    {
+      "icon_id": "544770",
+      "name": "ios-play",
+      "font_class": "play",
+      "unicode": "e83b",
+      "unicode_decimal": 59451
+    },
+    {
+      "icon_id": "544798",
+      "name": "ios-search-strong",
+      "font_class": "search",
+      "unicode": "e857",
+      "unicode_decimal": 59479
+    },
+    {
+      "icon_id": "544887",
+      "name": "navicon",
+      "font_class": "navicon",
+      "unicode": "e8ae",
+      "unicode_decimal": 59566
+    },
+    {
+      "icon_id": "1149403",
+      "name": "排行榜",
+      "font_class": "charts",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "1410521",
+      "name": "share",
+      "font_class": "share",
+      "unicode": "e6cc",
+      "unicode_decimal": 59084
+    },
+    {
+      "icon_id": "1478749",
+      "name": "ic_play_circle_outline",
+      "font_class": "play-backups",
+      "unicode": "e95a",
+      "unicode_decimal": 59738
+    },
+    {
+      "icon_id": "1479264",
+      "name": "ic_music_note",
+      "font_class": "music-note",
+      "unicode": "ea29",
+      "unicode_decimal": 59945
+    },
+    {
+      "icon_id": "1512529",
+      "name": "more_android_light",
+      "font_class": "more",
+      "unicode": "e7e3",
+      "unicode_decimal": 59363
+    },
+    {
+      "icon_id": "1596778",
+      "name": "delete_light",
+      "font_class": "delete",
+      "unicode": "e7ed",
+      "unicode_decimal": 59373
+    },
+    {
+      "icon_id": "1596779",
+      "name": "back_android",
+      "font_class": "back",
+      "unicode": "e7ee",
+      "unicode_decimal": 59374
+    },
+    {
+      "icon_id": "4936519",
+      "name": "heart-fill",
+      "font_class": "heart",
+      "unicode": "e849",
+      "unicode_decimal": 59465
+    },
+    {
+      "icon_id": "5994101",
+      "name": "notepad",
+      "font_class": "notepad",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "6263289",
+      "name": "电台直播",
+      "font_class": "radio",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "7008966",
+      "name": "message_fill",
+      "font_class": "message",
+      "unicode": "e70d",
+      "unicode_decimal": 59149
+    },
+    {
+      "icon_id": "7592578",
+      "name": "24gf-musicAlbum",
+      "font_class": "musicAlbum",
+      "unicode": "ea0f",
+      "unicode_decimal": 59919
+    },
+    {
+      "icon_id": "11249851",
+      "name": "sound-on",
+      "font_class": "sound",
+      "unicode": "e858",
+      "unicode_decimal": 59480
+    },
+    {
+      "icon_id": "17448862",
+      "name": "历史",
+      "font_class": "history",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

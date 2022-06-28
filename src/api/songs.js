@@ -26,3 +26,9 @@ export function _getPlaylist(id) {
     url: `/playlist/detail?id=${id}`
   })
 }
+
+export function _getLyric(id) {
+  return service({
+    url: `/lyric?id=${id}`
+  })
+}

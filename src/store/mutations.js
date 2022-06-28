@@ -9,6 +9,9 @@ export default {
   setPlayingStatus(state, playingStatus) {
     state.playing = playingStatus
   },
+  setIsFullShow(state, isShow) {
+    state.isFullShow = isShow
+  },
   setLoginStatus(state, loginStatus) {
     state.isLogged = loginStatus
   },
@@ -18,5 +21,16 @@ export default {
       state.playlist.push(songs)
       localStorage.setItem('playlist', JSON.stringify(state.playlist))
     }
+  },
+  setSearchHistory(state, key) {
+    const copy = state.searchHistory.slice()
+    if (!copy.find(item => item === key)) {
+      state.searchHistory.push(key)
+      localStorage.setItem('searchHistory', JSON.stringify(state.searchHistory))
+    }
+  },
+  clearSearchHistory(state) {
+    state.searchHistory = []
+    localStorage.removeItem('searchHistory')
   }
 }

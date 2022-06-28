@@ -3,7 +3,7 @@
     <!-- 左边logo -->
     <div class="left">
       <i class="iconfont icon-logo"></i>
-      <span>音乐啊</span>
+      <span>音乐</span>
     </div>
 
     <!-- 中间页面前进后退和搜索框 -->
@@ -32,10 +32,12 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import SearchForm from './HeaderSearch.vue'
 import LoginForm from './HearderLogin.vue'
 
 const router = useRouter()
+const store = useStore()
 
 const fullScreen = () => {
   document.documentElement.requestFullscreen()
@@ -54,8 +56,10 @@ const goTo = (to) => {
 
 const searchWithForm = ({ $event, keywords }) => {
   $event.preventDefault()
-  if(!keywords === false)
-  router.push({ path: `/search/${keywords}` })
+  if (!keywords === false) {
+    router.push({ path: `/search/${keywords}` })
+    store.commit('setSearchHistory', keywords)
+  }
 }
 
 const modifyTheme = () => {
@@ -96,9 +100,13 @@ const modifyTheme = () => {
     align-items: center;
     justify-content: space-between;
     font-size: 15px;
+
     .search {
+      height: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
+
       .icon {
         display: inline-flex;
         color: var(--color-black-white);
@@ -106,9 +114,11 @@ const modifyTheme = () => {
         padding: 5px;
         margin-right: 10px;
         border-radius: 50%;
+
         &:nth-child(1) {
           margin-left: 30px;
         }
+
         .iconfont {
           font-size: 12px;
         }
@@ -124,6 +134,7 @@ const modifyTheme = () => {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
     .divider {
       width: 1px;
       height: 16px;

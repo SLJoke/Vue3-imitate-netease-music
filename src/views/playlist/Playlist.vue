@@ -17,12 +17,12 @@
           </div>
         </div>
       </div>
-      <div
+      <!-- <div
         v-for="item in playlist.tracks"
         :key="item.id"
         class="text item"
-        :class="item.id === currentSong.id ? 'focus' : ''"
-        @click="setSongPlay(item.id)"
+        :class="item.id === currentSongId ? 'focus' : ''"
+        @dblclick="setSongPlay(item.id)"
       >
         <img :src="item.al.picUrl + '?param=224y224'" class="pic" />
         <div class="title-and-artist">
@@ -36,7 +36,8 @@
         <div class="album">
           <span>{{ item.al.name }}</span>
         </div>
-      </div>
+      </div> -->
+      <List :data="playlist.tracks" :current-song-id="currentSongId" @dblplay="id => setSongPlay(id)" />
     </div>
   </div>
 </template>
@@ -47,12 +48,13 @@ import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import { _getPlaylist } from '@/api/songs'
 import { setSongPlay, formatDate } from '@/utils/utils'
+import List from './List.vue'
 
 const route = useRoute()
 const store = useStore()
 const playlist = ref()
 const pid = computed(() => route.params.pid)
-const currentSong = computed(() => store.state.currentSong)
+const currentSongId = computed(() => store.state.currentSong?.id)
 
 onMounted(() => {
   getPlaylist()
