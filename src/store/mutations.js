@@ -30,7 +30,7 @@ export default {
     }
   },
   clearSearchHistory(state) {
-    state.searchHistory = []
+    state.searchHistory.length = 0
     localStorage.removeItem('searchHistory')
   }
 }
